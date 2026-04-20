@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -144,4 +145,152 @@ setInterval(()=>{
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💙 Nossa Jornada</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
+}
+
+.section{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  position:absolute;
+  width:100%;
+  opacity:0;
+  transition:all 1.5s ease;
+}
+
+.section.active{
+  opacity:1;
+}
+
+.text{
+  font-size:22px;
+  max-width:700px;
+  line-height:1.6;
+}
+
+.big{
+  font-size:42px;
+}
+
+.highlight{
+  color:#38bdf8;
+}
+
+.heart{
+  position:absolute;
+  color:#38bdf8;
+  font-size:20px;
+  animation:float 6s linear infinite;
+  opacity:0.3;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh)}
+  to{transform:translateY(-10vh)}
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3" type="audio/mpeg">
+</audio>
+
+<div class="section active">
+  <div class="text big">19 de Março<br>12:20...</div>
+</div>
+
+<div class="section">
+  <div class="text">Tudo começou aqui.<br>Um momento de coragem.</div>
+</div>
+
+<div class="section">
+  <div class="text">Os primeiros dias não foram fáceis...<br>Nariz entupido, desconforto...</div>
+</div>
+
+<div class="section">
+  <div class="text">Mas teve algo que ajudou 😄<br><span class="highlight">Muito sorvete 🍦</span></div>
+</div>
+
+<div class="section">
+  <div class="text">E então veio...<br>a voz fanha 😂</div>
+</div>
+
+<div class="section">
+  <div class="text">Hoje aconteceu algo especial...</div>
+</div>
+
+<div class="section">
+  <div class="text big">"benina" 🥹💙</div>
+</div>
+
+<div class="section">
+  <div class="text">Um momento simples...<br>mas que ficou marcado.</div>
+</div>
+
+<div class="section">
+  <div class="text">E isso tudo...</div>
+</div>
+
+<div class="section">
+  <div class="text big">Ainda é só o começo 💙</div>
+</div>
+
+<div class="section">
+  <div class="text">Você foi muito forte.<br>E eu vi tudo de perto.</div>
+</div>
+
+<script>
+
+const sections = document.querySelectorAll('.section');
+let index = 0;
+
+function nextScene(){
+  if(index < sections.length-1){
+    sections[index].classList.remove('active');
+    index++;
+    sections[index].classList.add('active');
+  }
+}
+
+setInterval(nextScene, 3500);
+
+// efeito corações
+setInterval(()=>{
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = '💙';
+  heart.style.left = Math.random()*100 + 'vw';
+  heart.style.fontSize = (10 + Math.random()*20)+'px';
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),6000);
+},500);
+
+</script>
+
+</body>
+>>>>>>> 8ac68c1 (consertando alguns bugs)
 </html>
