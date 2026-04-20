@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💙 Linha do Tempo — Erikinha</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins',sans-serif;background:#000;color:#fff;overflow-x:hidden}
+
+.heart{position:fixed;bottom:-20px;color:#ff4d6d;animation:floatUp linear forwards;opacity:.4}
+@keyframes floatUp{to{transform:translateY(-110vh);opacity:0}}
+
+h1{text-align:center;padding:25px;font-size:30px;background:linear-gradient(90deg,#ff4d6d,#ff8fa3);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+.timeline{position:relative;max-width:1000px;margin:auto;padding:20px}
+.timeline::before{content:'';position:absolute;left:50%;width:3px;height:100%;background:#ff4d6d;transform:translateX(-50%)}
+
+.card{position:relative;width:45%;padding:20px;background:#111;border-radius:15px;margin-bottom:40px;cursor:pointer;transition:.4s}
+.card:hover{transform:scale(1.03)}
+.card.active{transform:scale(1.06);box-shadow:0 0 30px rgba(255,77,109,.6)}
+
+.left{left:0}
+.right{left:55%}
+
+.dot{position:absolute;top:20px;width:12px;height:12px;background:#ff4d6d;border-radius:50%}
+.left .dot{right:-30px}
+.right .dot{left:-30px}
+
+.title{font-weight:600;margin-bottom:8px}
+.subtitle{font-size:12px;opacity:.6;margin-bottom:8px}
+
+.content{max-height:0;overflow:hidden;transition:max-height .6s ease;line-height:1.6}
+.card.active .content{max-height:1000px;margin-top:10px}
+
+.footer{text-align:center;margin:40px;opacity:.5}
+</style>
+</head>
+
+<body>
+
+<h1>💙 Linha do Tempo — Recuperação</h1>
+
+<div class="timeline">
+
+<!-- ================= INÍCIO ================= -->
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 19/03 — O GRANDE DIA</div>
+<div class="content">
+🕛 12:20 — Fim da cirurgia<br><br>
+• Correção do desvio de septo<br>
+• Início de uma nova fase
+• Corpo sob anestesia<br><br>
+💭 Aqui começou a mudança que ela precisava
+</div>
+</div>
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">📅 Dia 1</div>
+<div class="content">
+😴 Muito sono e cansaço<br>
+🤕 Dor controlada<br>
+🤧 Nariz entupido<br>
+🩸 Possível sangramento<br><br>
+💭 O corpo entendendo o que aconteceu
+</div>
+</div>
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 Dia 2</div>
+<div class="content">
+😖 Dor aumentando<br>
+😬 Dentes doloridos<br>
+🤕 Rosto pesado<br>
+🤧 Obstrução total<br><br>
+💭 O início do verdadeiro desafio
+</div>
+</div>
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">📅 Dia 3 — PICO</div>
+<div class="content">
+🔺 Inchaço máximo<br>
+😣 Pressão forte<br>
+🤧 Nariz fechado<br>
+🔥 Ardência<br><br>
+💭 O dia mais difícil — e ela enfrentou
+</div>
+</div>
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 Dia 4</div>
+<div class="content">
+📉 Dor diminuindo<br>
+🔥 Ardência<br>
+🧱 Casquinhas<br>
+🧠 Recuperação ativa<br><br>
+💭 O pior começa a ficar pra trás
+</div>
+</div>
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">📅 Dia 5</div>
+<div class="content">
+😌 Menos dor<br>
+🤧 Entupimento diferente<br>
+🧱 Casquinhas soltando<br>
+🚶‍♀️ Voltando às atividades<br><br>
+💭 Retomando o controle
+</div>
+</div>
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 Dia 6</div>
+<div class="content">
+🌬️ Respiração melhorando<br>
+🔄 Abre e fecha<br>
+😌 Mais conforto<br><br>
+😂 "menina" virou <b>"benina"</b>
+</div>
+</div>
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">📅 Dia 7 — O MARCO</div>
+<div class="content">
+🧑‍⚕️ Consulta médica<br>
+💨 Limpeza interna<br>
+🌬️ Grande melhora<br><br>
+💭 O dia que tudo começa a fluir
+</div>
+</div>
+
+<!-- ================= FASE MEDICAMENTOSA ================= -->
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">💊 Fase medicamentosa</div>
+<div class="content">
+Uso de Predsim (prednisolona)<br>
+Controle do inchaço<br><br>
+Depois o corpo assume naturalmente<br><br>
+💭 Da química para a força do corpo
+</div>
+</div>
+
+<!-- ================= DETALHES HUMANOS ================= -->
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">🍦 Detalhes especiais</div>
+<div class="content">
+🍦 Muito sorvete 😂<br>
+🤕 Dor no pescoço<br>
+💧 Lavagens nasais<br>
+🛌 Noites difíceis<br>
+🤝 Seu cuidado presente<br><br>
+💭 Ela não passou sozinha
+</div>
+</div>
+
+<!-- ================= EVOLUÇÃO ================= -->
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 Dias 8–10</div>
+<div class="content">
+🌬️ Respiração melhora<br>
+🧱 Casquinhas saindo<br>
+😌 Mais conforto<br><br>
+💭 Respirar começa a ficar fácil
+</div>
+</div>
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">📅 Dias 10–14</div>
+<div class="content">
+🤧 Nariz sensível<br>
+🌬️ Respiração funcional<br>
+😴 Sono melhor<br><br>
+💭 Resultado começando
+</div>
+</div>
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 1 mês</div>
+<div class="content">
+🌬️ Respiração boa<br>
+😴 Sono melhor<br>
+🧱 Poucas crostas<br><br>
+💭 Já não lembra como era antes
+</div>
+</div>
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">📅 3 meses</div>
+<div class="content">
+🟢 Quase final<br>
+🌬️ Estável<br>
+😌 Normalidade total<br><br>
+💭 Corpo funcionando como deveria
+</div>
+</div>
+
+<div class="card left">
+<div class="dot"></div>
+<div class="title">📅 6 meses</div>
+<div class="content">
+🏁 Recuperação completa<br>
+🌬️ Respiração perfeita<br>
+😌 Conforto total<br><br>
+💭 Ela venceu essa fase
+</div>
+</div>
+
+<!-- ================= FINAL ================= -->
+
+<div class="card right">
+<div class="dot"></div>
+<div class="title">💙 Final</div>
+<div class="content">
+Cada dia difícil foi um passo.<br><br>
+Do desafio... para a liberdade.<br><br>
+Liberdade de respirar melhor,<br>
+de dormir melhor,<br>
+de viver melhor 💙
+</div>
+</div>
+
+</div>
+
+<div class="footer">feito com amor</div>
+
+<script>
+const cards=document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+  card.addEventListener('click',()=>{
+    card.classList.toggle('active');
+    for(let i=0;i<6;i++) createHeart();
+  })
+})
+
+function createHeart(){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.innerText='❤️';
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(10+Math.random()*20)+'px';
+  h.style.animationDuration=(4+Math.random()*4)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>

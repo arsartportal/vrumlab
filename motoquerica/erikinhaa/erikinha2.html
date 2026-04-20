@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💙 Nossa Jornada</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+.section{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 1.2s ease;
+}
+
+.fade.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.title{
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.text{
+  font-size:20px;
+  max-width:700px;
+  line-height:1.6;
+}
+
+.highlight{
+  color:#38bdf8;
+  font-weight:600;
+}
+
+.big{
+  font-size:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="section">
+  <div class="fade">
+    <div class="title big">19 de Março</div>
+    <div class="text">12:20... tudo começou.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">Um dia de coragem.<br>Um começo importante.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">Os primeiros dias não foram fáceis...<br>Nariz entupido, desconforto...</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">Mas teve uma coisa que ajudou bastante 😄<br><span class="highlight">Muito sorvete 🍦</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">E então veio ela...<br>A fase da voz fanha 😂</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">Hoje aconteceu algo inesquecível...</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text big">"benina" 🥹💙</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">Uma mistura de recuperação...<br>com momentos que só a gente entende.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text">E isso tudo...</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="fade">
+    <div class="text big">Ainda é só o começo 💙</div>
+  </div>
+</div>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.4 });
+
+faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

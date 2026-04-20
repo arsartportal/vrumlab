@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linha do Tempo até a Harley</title>
+  <link rel="stylesheet" href="motoquerica.css">
+</head>
+<body>
+
+<!-- ========================================================= -->
+<!-- INTRODUÇÃO DA JORNADA                                     -->
+<!-- ========================================================= -->
+
+<div class="dream intro">
+
+  <p class="intro-tag">
+    Projeto MotoQuerica
+  </p>
+
+  <h1 class="intro-title">
+    A estrada até a
+    <span>Harley-Davidson 883</span>
+  </h1>
+
+  <p class="intro-text">
+    Esta página existe para registrar cada pequena vitória da Erikinha:
+    os primeiros metros, a primeira troca de marcha, a primeira curva, o
+    primeiro passeio e, um dia, o momento em que ela finalmente vai subir
+    na Harley dos sonhos.
+  </p>
+
+  <p class="intro-subtext">
+    Cada treino salvo aqui vira parte da história. Cada quilômetro registrado
+    aproxima um pouco mais dos 10.000 km e dos R$ 50.000,00 necessários para
+    transformar esse sonho em realidade.
+  </p>
+
+  <div class="intro-stats">
+
+    <div class="card intro-stat-card">
+      <div class="intro-icon">🏍️</div>
+
+      <strong id="kmAtualIntro" class="intro-number">
+        0 km
+      </strong>
+
+      <p class="intro-label">
+        Já percorridos
+      </p>
+    </div>
+
+    <div class="card intro-stat-card">
+      <div class="intro-icon">🛣️</div>
+
+      <strong id="kmFaltandoIntro" class="intro-number">
+        10.000 km
+      </strong>
+
+      <p class="intro-label">
+        Ainda faltam
+      </p>
+    </div>
+
+    <div class="card intro-stat-card">
+      <div class="intro-icon">🏁</div>
+
+      <strong id="porcentagemIntro" class="intro-number">
+        0%
+      </strong>
+
+      <p class="intro-label">
+        Da jornada concluída
+      </p>
+    </div>
+
+    <div class="card intro-stat-card">
+      <div class="intro-icon">🧡</div>
+
+      <strong class="intro-number">
+        Harley 883
+      </strong>
+
+      <p class="intro-label">
+        Sonho final
+      </p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- REGISTRO DE EVOLUÇÃO                                      -->
+<!-- Esta seção envia os dados para o Firebase pelo            -->
+<!-- motoquerica.js                                            -->
+<!-- ========================================================= -->
+
+<div class="dream">
+  <h2>📈 Registro de Evolução</h2>
+
+  <p>
+    Registre cada treino da Erikinha. Cada quilômetro salvo vai aproximando
+    ela da Harley-Davidson 883 e desbloqueando novas conquistas.
+  </p>
+
+  <div class="registro-grid">
+
+    <!-- ========================================= -->
+    <!-- CARD 1 - DATA E KM                        -->
+    <!-- ========================================= -->
+    <div class="card">
+
+      <!-- Campo de data -->
+      <label for="dataTreino">📅 Data do treino</label>
+      <input
+        id="dataTreino"
+        type="date"
+      >
+
+      <!-- Campo de quilômetros -->
+      <label for="kmTreino">🛣️ Quilômetros rodados</label>
+      <input
+        id="kmTreino"
+        type="number"
+        min="1"
+        placeholder="Ex: 15"
+      >
+
+    </div>
+
+    <!-- ========================================= -->
+    <!-- CARD 2 - EVOLUÇÃO E OBSERVAÇÕES           -->
+    <!-- ========================================= -->
+    <div class="card">
+
+      <!-- Select de evolução -->
+      <label for="evolucaoTreino">🚀 Como foi a evolução?</label>
+      <select id="evolucaoTreino">
+        <option>Escolha...</option>
+        <option>Muita evolução 🚀</option>
+        <option>Boa evolução 😊</option>
+        <option>Pouca evolução 🙂</option>
+        <option>Sem evolução ainda 😕</option>
+      </select>
+
+      <!-- Observações -->
+      <label for="obsTreino">📝 Observações do treino</label>
+      <textarea
+        id="obsTreino"
+        placeholder="Ex: Hoje ela conseguiu arrancar sem morrer a moto, fez curvas melhores e ficou muito mais confiante."
+      ></textarea>
+
+    </div>
+
+  </div>
+
+  <!-- ========================================= -->
+  <!-- BOTÃO DE SALVAR                           -->
+  <!-- O JS procura exatamente esse id           -->
+  <!-- ========================================= -->
+  <div style="display:flex; flex-direction:column; align-items:center; margin-top:10px;">
+    <button id="salvarRegistro">
+      Salvar Registro
+    </button>
+
+    <!-- Mensagem mostrada após salvar -->
+    <p id="mensagemSalva"></p>
+  </div>
+</div>
+
+<div class="dream">
+<!-- ======================================================= -->
+  <!-- REGISTROS DOS TREINOS                                   -->
+  <!-- ======================================================= -->
+  <div class="card" style="margin-top:28px;">
+
+    <h3>📝 Linha do Tempo dos Treinos</h3>
+
+    <p style="margin-bottom:20px;">
+      Cada treino salvo aparece aqui automaticamente, mostrando a evolução da
+      Erikinha ao longo da jornada.
+    </p>
+
+    <!-- O JS adiciona os registros aqui -->
+    <div id="timelineRegistros" class="timeline-registros"></div>
+
+  </div>
+  </div>
+
+<!-- ========================================================= -->
+<!-- COMPARAÇÃO ENTRE A FAN E A HARLEY                         -->
+<!-- ========================================================= -->
+
+<div class="dream">
+  <h2>⚔️ De onde ela começou x onde ela vai chegar</h2>
+
+  <p>
+    A jornada da Erikinha começou na Honda Fan 150 ESDi 2014. Leve, econômica
+    e perfeita para aprender. Mas cada quilômetro registrado aproxima ela do
+    grande sonho: a Harley-Davidson 883 R 2013.
+  </p>
+
+  <p style="
+    margin-top:10px;
+    color:#ffb07a;
+    font-weight:600;
+  ">
+    A Fan é o começo da história. A Harley é a recompensa no final dos 10.000 km. 🧡
+  </p>
+
+  <div class="comparativo-grid">
+
+    <!-- ===================================================== -->
+    <!-- FAN                                                   -->
+    <!-- ===================================================== -->
+    <div class="card">
+
+      <h3>🔵 Honda Fan 150 ESDi 2014</h3>
+
+      <p style="color:#8cc8ff; margin-bottom:18px;">
+        A moto que está ensinando ela a pilotar.
+      </p>
+
+      <div class="harley-foto-container" style="margin:0 0 22px;">
+        <img
+          src="img/fan150.jpg"
+          alt="Honda Fan 150 da Erikinha"
+          style="
+            border:1px solid rgba(92,167,255,0.22);
+            border-radius:20px;
+          "
+        >
+
+        <p style="
+          margin-top:10px;
+          color:#8cc8ff;
+          font-size:0.92rem;
+        ">
+          A primeira moto da jornada. Foi nela que tudo começou. 💙
+        </p>
+      </div>
+
+      <ul>
+        <li><strong>Motor</strong> <span>149,2 cc monocilíndrico</span></li>
+        <li><strong>Potência</strong> <span>14,3 cv</span></li>
+        <li><strong>Torque</strong> <span>1,45 kgfm</span></li>
+        <li><strong>Peso</strong> <span>120 kg</span></li>
+        <li><strong>Altura do banco</strong> <span>792 mm</span></li>
+        <li><strong>Tanque</strong> <span>16 litros</span></li>
+        <li><strong>Câmbio</strong> <span>5 marchas</span></li>
+        <li><strong>Consumo médio</strong> <span>35 km/l</span></li>
+        <li><strong>Autonomia</strong> <span>560 km</span></li>
+      </ul>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- HARLEY                                                -->
+    <!-- ===================================================== -->
+    <div class="card">
+
+      <h3>🟠 Harley-Davidson 883 R 2013</h3>
+
+      <p style="color:#ffb07a; margin-bottom:18px;">
+        O sonho esperando no final da jornada.
+      </p>
+
+      <div class="harley-foto-container" style="margin:0 0 22px;">
+        <img
+          src="img/harley883.jpg"
+          alt="Harley-Davidson 883 da Erikinha"
+          style="
+            border:1px solid rgba(255,140,66,0.25);
+            border-radius:20px;
+          "
+        >
+
+        <p style="
+          margin-top:10px;
+          color:#ffb07a;
+          font-size:0.92rem;
+        ">
+          A Harley esperando pela Erikinha no final dos 10.000 km. 🧡
+        </p>
+      </div>
+
+      <ul>
+        <li><strong>Motor</strong> <span>883 cc V-Twin Evolution</span></li>
+        <li><strong>Potência</strong> <span>53 cv</span></li>
+        <li><strong>Torque</strong> <span>7 kgfm</span></li>
+        <li><strong>Peso</strong> <span>255 kg</span></li>
+        <li><strong>Altura do banco</strong> <span>760 mm</span></li>
+        <li><strong>Tanque</strong> <span>12,5 litros</span></li>
+        <li><strong>Câmbio</strong> <span>5 marchas</span></li>
+        <li><strong>Consumo médio</strong> <span>20 km/l</span></li>
+        <li><strong>Autonomia</strong> <span>220 km</span></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+  
+
+  <!-- ========================================================= -->
+<!-- METAS E LINHA DO TEMPO DOS TREINOS                        -->
+<!-- ========================================================= -->
+
+<div class="dream">
+
+  <h2>🎯 Jornada até a Harley</h2>
+
+  <p>
+    Cada quilômetro registrado desbloqueia novas conquistas. Quando a Erikinha
+    chegar aos 10.000 km, ela estará pronta para a Harley.
+  </p>
+
+  <!-- ======================================================= -->
+  <!-- METAS / BADGES                                          -->
+  <!-- ======================================================= -->
+  <div class="card meta-financeira">
+
+    <h3>🏅 Conquistas desbloqueáveis</h3>
+
+    <p style="margin-bottom:20px;">
+      A primeira conquista aparece com apenas 1 km. Depois disso, novas badges
+      surgem a cada 100 km.
+    </p>
+
+    <!-- O JS cria automaticamente todas as metas aqui -->
+    <div id="timelineMetas"></div>
+
+  </div>
+
+  
+
+</div>
+
+  <div class="card comparativo-card">
+
+  <h3 class="comparativo-titulo">
+    📊 Quem vence em cada aspecto?
+  </h3>
+
+  <div class="comparativo-linhas">
+
+    <div class="comparativo-linha">
+      <div class="comparativo-item">
+        ⚖️ Peso
+      </div>
+
+      <div class="comparativo-valor fan venceu">
+        Fan 150 — 120 kg
+      </div>
+
+      <div class="comparativo-explicacao">
+        Mais leve e muito mais fácil de controlar para quem está aprendendo.
+      </div>
+    </div>
+
+    <div class="comparativo-linha">
+      <div class="comparativo-item">
+        ⛽ Consumo
+      </div>
+
+      <div class="comparativo-valor fan venceu">
+        Fan 150 — 35 km/l
+      </div>
+
+      <div class="comparativo-explicacao">
+        Gasta menos combustível e permite treinar mais gastando menos.
+      </div>
+    </div>
+
+    <div class="comparativo-linha">
+      <div class="comparativo-item">
+        🪑 Altura do banco
+      </div>
+
+      <div class="comparativo-valor harley venceu">
+        Harley 883 — 760 mm
+      </div>
+
+      <div class="comparativo-explicacao">
+        O banco mais baixo dá mais segurança para apoiar os pés no chão.
+      </div>
+    </div>
+
+    <div class="comparativo-linha">
+      <div class="comparativo-item">
+        ⚡ Potência
+      </div>
+
+      <div class="comparativo-valor harley venceu">
+        Harley 883 — 53 cv
+      </div>
+
+      <div class="comparativo-explicacao">
+        Muito mais força, retomada e emoção na pilotagem.
+      </div>
+    </div>
+
+    <div class="comparativo-linha">
+      <div class="comparativo-item">
+        💪 Torque
+      </div>
+
+      <div class="comparativo-valor harley venceu">
+        Harley 883 — 7 kgfm
+      </div>
+
+      <div class="comparativo-explicacao">
+        A Harley empurra muito mais forte e responde com mais facilidade.
+      </div>
+    </div>
+
+    <div class="comparativo-linha">
+      <div class="comparativo-item">
+        🏍️ Facilidade para aprender
+      </div>
+
+      <div class="comparativo-valor fan venceu">
+        Fan 150
+      </div>
+
+      <div class="comparativo-explicacao">
+        Mais leve, dócil e fácil de dominar. É a moto perfeita para os primeiros quilômetros.
+      </div>
+    </div>
+
+    <div class="comparativo-linha destaque-final">
+      <div class="comparativo-item">
+        🧡 Sonho final
+      </div>
+
+      <div class="comparativo-valor harley venceu">
+        Harley-Davidson 883
+      </div>
+
+      <div class="comparativo-explicacao">
+        A Fan ensina. A Harley realiza o sonho.
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<!-- Scripts -->
+<script type="module" src="firebase.js"></script>
+<script type="module" src="motoquerica.js"></script>
+</body>
+</html>
