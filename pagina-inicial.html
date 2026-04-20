@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VrumLab — Seu próximo carro ou moto começa aqui</title>
+
+  <meta
+    name="description"
+    content="Compare motos lado a lado, descubra qual combina mais com você e encontre a próxima máquina dos seus sonhos."
+  >
+
+  <meta
+    name="keywords"
+    content="comparador de motos, ficha técnica, Harley Davidson, Honda Fan, comparar motos"
+  >
+
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="VrumLab">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="pagina-inicial.css">
+</head>
+
+<body>
+
+  <!-- ===================================================== -->
+  <!-- HEADER                                                -->
+  <!-- ===================================================== -->
+  <header class="header">
+    <div class="container nav">
+
+      <div class="logo">
+        <span>Vrum</span>Lab
+      </div>
+
+      <nav>
+        <a href="#comparador">Comparador</a>
+        <a href="#populares">Populares</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#artigos">Artigos</a>
+        <a href="#sobre">Sobre</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ===================================================== -->
+  <!-- HERO                                                  -->
+  <!-- ===================================================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div class="hero-texto">
+
+        <div class="hero-badge">
+          🏍️ Comparador inteligente de motos
+        </div>
+
+        <h1>
+          Seu próximo carro ou moto começa aqui.
+        </h1>
+
+        <p>
+          Compare motos lado a lado, descubra qual vence em cada aspecto
+          e encontre a próxima máquina ideal para o seu estilo, bolso e sonho.
+        </p>
+
+        <div class="hero-botoes">
+          <a href="#comparador" class="btn btn-principal">
+            Comparar motos
+          </a>
+
+          <a href="#populares" class="btn btn-secundario">
+            Ver motos populares
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-card">
+
+        <div class="mini-card azul">
+          <p>Moto atual</p>
+          <h3>Honda Fan 150</h3>
+          <span>Leve • Econômica • Ideal para aprender</span>
+        </div>
+
+        <div class="versus">
+          VS
+        </div>
+
+        <div class="mini-card laranja">
+          <p>Moto dos sonhos</p>
+          <h3>Harley 883</h3>
+          <span>Custom • Potente • Sonho final</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- ESTATÍSTICAS                                          -->
+  <!-- ===================================================== -->
+  <section class="stats-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">VRUMLAB EM NÚMEROS</span>
+
+        <h2>
+          Milhares de motos, comparações e sonhos sobre duas rodas.
+        </h2>
+
+        <p>
+          O VrumLab ajuda motociclistas a comparar motos e descobrir
+          qual combina mais com cada perfil.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+
+        <div class="stat-card destaque">
+  <div class="stat-icone">🏍️</div>
+  <strong id="totalMotos">0</strong>
+  <span>Motos cadastradas</span>
+</div>
+
+<div class="stat-card">
+  <div class="stat-icone">⚔️</div>
+  <strong id="totalComparacoes">0</strong>
+  <span>Comparações realizadas</span>
+</div>
+
+        <div class="stat-card">
+          <div class="stat-icone">⭐</div>
+          <strong>100%</strong>
+          <span>Comparação visual</span>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icone">🆓</div>
+          <strong>Grátis</strong>
+          <span>Para qualquer pessoa</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- COMPARADOR                                            -->
+  <!-- ===================================================== -->
+  <section id="comparador" class="comparador-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">COMPARE AGORA</span>
+
+        <h2>
+          Compare duas motos lado a lado.
+        </h2>
+
+        <p>
+          Escolha duas motos do banco de dados e veja imediatamente
+          qual é melhor em potência, consumo, peso, torque e muito mais.
+        </p>
+      </div>
+
+<div class="comparador-box">
+
+  <div class="campo-select">
+    <label for="moto1">Moto 1</label>
+    <select id="moto1">
+      <option>Carregando motos...</option>
+    </select>
+  </div>
+
+  <div class="campo-select">
+    <label for="moto2">Moto 2</label>
+    <select id="moto2">
+      <option>Carregando motos...</option>
+    </select>
+  </div>
+
+  <div class="campo-select">
+    <label for="moto3">Moto 3</label>
+    <select id="moto3">
+      <option>Carregando motos...</option>
+    </select>
+  </div>
+
+  <div class="campo-select">
+    <label for="moto4">Moto 4</label>
+    <select id="moto4">
+      <option>Carregando motos...</option>
+    </select>
+  </div>
+
+  <div class="campo-select">
+    <label for="moto5">Moto 5</label>
+    <select id="moto5">
+      <option>Carregando motos...</option>
+    </select>
+  </div>
+
+  <button id="compararBtn" class="btn btn-principal">
+    Comparar até 5 motos
+  </button>
+
+</div>
+
+      <div id="resultadoComparacao" class="resultado-comparacao"></div>
+      
+
+    </div>
+  </section>
+
+  <section class="ranking-section">
+  <div class="container">
+    <div id="rankingMotos"></div>
+  </div>
+</section>
+
+  <!-- ===================================================== -->
+  <!-- POPULARES                                             -->
+  <!-- ===================================================== -->
+  <section id="populares" class="populares-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">MOTOS POPULARES</span>
+
+        <h2>
+          Algumas das motos mais comparadas no VrumLab.
+        </h2>
+
+        <p>
+          Descubra as motos que mais chamam atenção de quem visita o VrumLab.
+        </p>
+      </div>
+
+      <div class="cards-populares">
+
+        <article class="card-popular">
+          <img src="../img/fan150.jpg" alt="Honda Fan 150">
+
+          <div class="card-popular-conteudo">
+            <h3>Honda Fan 150 ESDi 2014</h3>
+            <p>Leve, econômica e perfeita para aprender.</p>
+          </div>
+        </article>
+
+        <article class="card-popular">
+          <img src="../img/harley883.jpg" alt="Harley-Davidson 883 R">
+
+          <div class="card-popular-conteudo">
+            <h3>Harley-Davidson 883 R 2013</h3>
+            <p>Uma das customs mais desejadas do mundo.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  
+
+  <!-- ===================================================== -->
+  <!-- O QUE O VRUMLAB COMPARA                               -->
+  <!-- ===================================================== -->
+  <section class="vantagens-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">COMPARAÇÃO INTELIGENTE</span>
+
+        <h2>
+          Descubra quem vence em cada detalhe.
+        </h2>
+
+        <p>
+          O VrumLab mostra qual moto é melhor em cada aspecto importante.
+        </p>
+      </div>
+
+      <div class="vantagens-grid">
+
+        <article class="vantagem-card">
+          <div class="icone">⚡</div>
+          <h3>Potência</h3>
+          <p>Veja qual moto entrega mais força e desempenho.</p>
+        </article>
+
+        <article class="vantagem-card">
+          <div class="icone">⛽</div>
+          <h3>Consumo</h3>
+          <p>Compare qual moto é mais econômica.</p>
+        </article>
+
+        <article class="vantagem-card">
+          <div class="icone">⚖️</div>
+          <h3>Peso</h3>
+          <p>Descubra qual moto é mais leve e fácil de pilotar.</p>
+        </article>
+
+        <article class="vantagem-card">
+          <div class="icone">🪑</div>
+          <h3>Altura do banco</h3>
+          <p>Ideal para entender qual moto é mais confortável.</p>
+        </article>
+
+        <article class="vantagem-card">
+          <div class="icone">💪</div>
+          <h3>Torque</h3>
+          <p>Saiba qual moto responde melhor e tem mais força.</p>
+        </article>
+
+        <article class="vantagem-card destaque-card">
+          <div class="icone">🧡</div>
+          <h3>Sonho x Realidade</h3>
+          <p>Compare a moto que você tem com a moto que você quer ter.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- CATEGORIAS                                            -->
+  <!-- ===================================================== -->
+  <section id="categorias" class="categorias-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">ENCONTRE SEU ESTILO</span>
+
+        <h2>
+          Explore motos por categoria.
+        </h2>
+
+        <p>
+          Descubra rapidamente qual tipo de moto combina mais com você.
+        </p>
+      </div>
+
+      <div class="categorias-grid">
+
+        <div class="categoria-card">
+          <span>🏍️</span>
+          <h3>Custom</h3>
+          <p>Estilo, estrada e motos cheias de personalidade.</p>
+        </div>
+
+        <div class="categoria-card">
+          <span>🏙️</span>
+          <h3>Street</h3>
+          <p>Perfeitas para o dia a dia e para quem está começando.</p>
+        </div>
+
+        <div class="categoria-card">
+          <span>🛣️</span>
+          <h3>Trail</h3>
+          <p>Versatilidade para cidade, estrada e aventura.</p>
+        </div>
+
+        <div class="categoria-card">
+          <span>⚡</span>
+          <h3>Esportiva</h3>
+          <p>Potência, velocidade e adrenalina.</p>
+        </div>
+
+        <div class="categoria-card">
+          <span>🛵</span>
+          <h3>Scooter</h3>
+          <p>Conforto, economia e praticidade.</p>
+        </div>
+
+        <div class="categoria-card">
+          <span>🌍</span>
+          <h3>Big Trail</h3>
+          <p>Feitas para longas viagens e aventuras.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- ARTIGOS                                               -->
+  <!-- ===================================================== -->
+  <section id="artigos" class="artigos-section">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-tag">GUIAS E COMPARATIVOS</span>
+
+        <h2>
+          Conteúdo para quem ama motos.
+        </h2>
+
+        <p>
+          Descubra dicas, comparativos e guias para escolher sua próxima máquina.
+        </p>
+      </div>
+
+      <div class="artigos-grid">
+
+        <article class="artigo-card">
+          <div class="artigo-tag">COMPARATIVO</div>
+
+          <h3>
+            Harley 883 ou Iron 883: qual vale mais a pena?
+          </h3>
+
+          <p>
+            Descubra as diferenças entre duas das customs mais famosas do mundo.
+          </p>
+
+          <a href="#">
+            Ler matéria →
+          </a>
+        </article>
+
+        <article class="artigo-card">
+          <div class="artigo-tag">GUIA</div>
+
+          <h3>
+            Qual a melhor moto para começar?
+          </h3>
+
+          <p>
+            Veja quais motos são mais leves, econômicas e ideais para iniciantes.
+          </p>
+
+          <a href="#">
+            Ler matéria →
+          </a>
+        </article>
+
+        <article class="artigo-card destaque-artigo">
+          <div class="artigo-tag">ESPECIAL</div>
+
+          <h3>
+            Como sair da primeira moto até a moto dos sonhos.
+          </h3>
+
+          <p>
+            Um guia para transformar quilômetros, disciplina e metas em uma Harley, BMW ou qualquer sonho sobre rodas.
+          </p>
+
+          <a href="#">
+            Ler matéria →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- SOBRE                                                 -->
+  <!-- ===================================================== -->
+  <section id="sobre" class="sobre-section">
+    <div class="container sobre-box">
+
+      <span class="section-tag">SOBRE O VRUMLAB</span>
+
+      <h2>
+        Feito para quem ama motos.
+      </h2>
+
+      <p>
+        O VrumLab nasceu para ajudar pessoas a comparar motos de forma simples,
+        visual e inteligente.
+      </p>
+
+      <p>
+        Aqui você pode descobrir qual moto combina mais com você, comparar
+        ficha técnica, consumo, peso, potência e muito mais.
+      </p>
+
+      <p>
+        Este site foi criado para quem sonha com a próxima máquina.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== -->
+  <!-- FOOTER                                                -->
+  <!-- ===================================================== -->
+  <footer class="footer">
+    <div class="container footer-box">
+
+      <p>
+        © 2026 VrumLab — Seu próximo carro ou moto começa aqui.
+      </p>
+
+      <div class="footer-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Contato</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script type="module" src="vrumlab.js"></script>
+</body>
+</html>
