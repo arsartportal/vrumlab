@@ -1,0 +1,98 @@
+<!-- ===================================================== -->
+<!-- HEADER PADRÃO DO VRUMLAB                              -->
+<!-- ===================================================== -->
+<header class="header">
+  <div class="container nav">
+
+    <!-- Logo -->
+    <a href="/index.html" class="logo">
+    <span>Vrum</span>Lab
+    </a>
+
+    <!-- Botão do menu mobile -->
+    <button
+      class="menu-mobile-btn"
+      id="menuMobileBtn"
+      aria-label="Abrir menu"
+    >
+      ☰
+    </button>
+
+    <!-- Navegação -->
+    <nav class="menu" id="menuPrincipal">
+  <a href="/index.html#comparador">Comparador</a>
+  <a href="/index.html#populares">Populares</a>
+  <a href="/index.html#categorias">Categorias</a>
+  <a href="/index.html#artigos">Artigos</a>
+  <a href="/sobre/sobre.html">Sobre</a>
+  <a href="/politica-de-privacidade/politicadeprivacidade.html">Privacidade</a>
+</nav>
+
+  </div>
+</header>
+
+<!-- ===================================================== -->
+<!-- FOOTER PADRÃO DO VRUMLAB                              -->
+<!-- ===================================================== -->
+<footer class="footer">
+  <div class="container footer-box">
+
+    <!-- Marca -->
+    <div class="footer-brand">
+      <a href="index.html" class="logo footer-logo">
+        <span>Vrum</span>Lab
+      </a>
+
+      <p>
+        Compare motos, descubra qual combina com você e encontre a próxima
+        máquina dos seus sonhos.
+      </p>
+    </div>
+
+    <!-- Links de navegação -->
+    <div class="footer-links-coluna">
+      <h4>Navegação</h4>
+
+      <a href="index.html#comparador">Comparador</a>
+      <a href="index.html#populares">Populares</a>
+      <a href="index.html#categorias">Categorias</a>
+      <a href="index.html#artigos">Artigos</a>
+      <a href="index.html#sobre">Sobre</a>
+    </div>
+
+    <!-- Links institucionais -->
+    <div class="footer-links-coluna">
+      <h4>Informações</h4>
+
+      <a href="/politica-de-privacidade/politicadeprivacidade.html">
+        Política de Privacidade
+      </a>
+
+      <a href="contato.html">
+        Contato
+      </a>
+
+      <a href="/sobre/sobre.html">
+        Sobre o projeto
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Rodapé inferior -->
+  <div class="footer-bottom">
+    © 2026 VrumLab • Feito para quem ama motos.
+  </div>
+</footer>
+
+<!-- ===================================================== -->
+<!-- SCRIPT DO MENU MOBILE                                 -->
+<!-- ===================================================== -->
+<script id="3mjlwm">
+  const menuBtn = document.getElementById("menuMobileBtn");
+  const menu = document.getElementById("menuPrincipal");
+
+  menuBtn?.addEventListener("click", () => {
+    menu.classList.toggle("ativo");
+  });
+</script>

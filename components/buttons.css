@@ -1,0 +1,240 @@
+/* ====================================================== */
+/* BOTÃO BASE                                             */
+/* ====================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 22px;
+  border-radius: 18px;
+
+  border: 1px solid transparent;
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 0.96rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* brilho suave interno */
+.btn::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0)
+  );
+
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* ====================================================== */
+/* BOTÃO PRINCIPAL                                        */
+/* ====================================================== */
+
+.btn-principal {
+  color: #ffffff;
+
+  background: linear-gradient(
+    135deg,
+    #2f4657,
+    #445c6d
+  );
+
+  border-color: rgba(68,92,109,0.12);
+
+  box-shadow:
+    0 10px 24px rgba(68,92,109,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+}
+
+.btn-principal:hover {
+  background: linear-gradient(
+    135deg,
+    #3a5365,
+    #516d80
+  );
+
+  box-shadow:
+    0 16px 34px rgba(68,92,109,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* ====================================================== */
+/* BOTÃO SECUNDÁRIO                                       */
+/* ====================================================== */
+
+.btn-secundario {
+  color: var(--text);
+
+  background: rgba(255,255,255,0.72);
+  border-color: rgba(68,92,109,0.10);
+
+  backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 8px 22px rgba(15,23,42,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.75);
+}
+
+.btn-secundario:hover {
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(68,92,109,0.18);
+  color: var(--petrol);
+
+  box-shadow:
+    0 14px 28px rgba(15,23,42,0.10);
+}
+
+/* ====================================================== */
+/* BOTÃO OUTLINE                                          */
+/* ====================================================== */
+
+.btn-outline {
+  color: var(--petrol);
+
+  background: rgba(255,255,255,0.4);
+  border-color: rgba(68,92,109,0.16);
+}
+
+.btn-outline:hover {
+  background: rgba(68,92,109,0.08);
+  border-color: rgba(68,92,109,0.24);
+  color: #2f4657;
+}
+
+/* ====================================================== */
+/* BOTÃO DOURADO PREMIUM                                  */
+/* ====================================================== */
+
+.btn-gold {
+  color: #3a2a10;
+
+  background: linear-gradient(
+    135deg,
+    #e2d0a4,
+    #c9ae74
+  );
+
+  border-color: rgba(196,167,106,0.18);
+
+  box-shadow:
+    0 12px 28px rgba(196,167,106,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(
+    135deg,
+    #ead9b0,
+    #d3b77f
+  );
+
+  box-shadow:
+    0 18px 36px rgba(196,167,106,0.24);
+}
+
+/* ====================================================== */
+/* BOTÃO PEQUENO                                          */
+/* ====================================================== */
+
+.btn-small {
+  padding: 10px 16px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+}
+
+/* ====================================================== */
+/* BOTÃO GRANDE                                           */
+/* ====================================================== */
+
+.btn-large {
+  padding: 18px 30px;
+  border-radius: 20px;
+  font-size: 1rem;
+}
+
+/* ====================================================== */
+/* BOTÃO DE VOLTAR                                        */
+/* ====================================================== */
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 32px 0 24px;
+
+  padding: 12px 18px;
+  border-radius: 16px;
+
+  text-decoration: none;
+  font-weight: 600;
+
+  color: var(--petrol);
+
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(68,92,109,0.10);
+
+  box-shadow:
+    0 8px 20px rgba(15,23,42,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.75);
+
+  transition: all 0.25s ease;
+}
+
+.btn-voltar:hover {
+  transform: translateY(-2px);
+
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(68,92,109,0.18);
+
+  color: #2f4657;
+
+  box-shadow:
+    0 14px 28px rgba(15,23,42,0.10);
+}
+
+/* ====================================================== */
+/* RESPONSIVO                                             */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+  .btn,
+  .btn-large {
+    width: 100%;
+  }
+}

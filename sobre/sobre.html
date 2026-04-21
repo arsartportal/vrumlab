@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre o VrumLab</title>
+
+  <!-- ===================================================== -->
+  <!-- CSS GLOBAL COMPARTILHADO                              -->
+  <!-- ===================================================== -->
+  <link rel="stylesheet" href="../components/variables.css">
+  <link rel="stylesheet" href="../components/background.css">
+  <link rel="stylesheet" href="../components/layout.css">
+  <link rel="stylesheet" href="../components/buttons.css">
+  <link rel="stylesheet" href="../components/cards.css">
+  <link rel="stylesheet" href="../components/header-footer.css">
+
+  <!-- ===================================================== -->
+  <!-- CSS ESPECÍFICO DA PÁGINA                              -->
+  <!-- ===================================================== -->
+  <link rel="stylesheet" href="sobre.css">
+</head>
+
+<body>
+
+  <!-- ===================================================== -->
+  <!-- HEADER PADRÃO                                         -->
+  <!-- ===================================================== -->
+  <div id="header-footer-top"></div>
+
+  <main class="container-small">
+
+
+    <!-- ===================================================== -->
+    <!-- HERO                                                  -->
+    <!-- ===================================================== -->
+    <section class="hero">
+      <div class="tag">VRUMLAB • SOBRE O PROJETO</div>
+
+      <h1>
+        Um laboratório para quem ama
+        <span>motos, números e comparações</span>
+      </h1>
+
+      <p>
+        O VrumLab nasceu para transformar fichas técnicas, comparativos e
+        estatísticas em uma experiência muito mais clara, bonita e útil.
+        Aqui você pode comparar motos, descobrir tendências, explorar categorias
+        e encontrar informações que realmente ajudam na escolha da próxima moto.
+      </p>
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- CONTEÚDO                                              -->
+    <!-- ===================================================== -->
+    <section class="content">
+
+      <div class="card card-destaque">
+        <h2>O que é o VrumLab?</h2>
+
+        <p>
+          O VrumLab é uma plataforma criada para reunir motos, dados técnicos,
+          comparativos e rankings em um só lugar.
+        </p>
+
+        <p>
+          Em vez de procurar informações em vários sites diferentes, o usuário
+          consegue visualizar tudo de forma organizada, visual e fácil de comparar.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Nosso objetivo</h2>
+
+        <p>
+          Queremos ajudar quem está pesquisando a primeira moto, planejando uma
+          troca ou apenas gosta de acompanhar o mercado.
+        </p>
+
+        <ul>
+          <li>Facilitar a comparação entre modelos;</li>
+          <li>Apresentar informações de forma clara;</li>
+          <li>Mostrar tendências e motos mais populares;</li>
+          <li>Criar uma experiência bonita, moderna e intuitiva.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>O que você encontra aqui</h2>
+
+        <ul>
+          <li>Comparador entre até 5 motos;</li>
+          <li>Ranking das motos mais pesquisadas;</li>
+          <li>Categorias e filtros por estilo;</li>
+          <li>Artigos e curiosidades sobre o universo das motos;</li>
+          <li>Dados técnicos organizados e atualizados.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Como o projeto foi criado</h2>
+
+        <p>
+          O VrumLab foi desenvolvido com foco em performance, design moderno e
+          facilidade de manutenção.
+        </p>
+
+        <p>
+          O projeto utiliza HTML, CSS, JavaScript e integração com Firebase para
+          armazenar dados, comparações e estatísticas de uso.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Por que esse visual?</h2>
+
+        <p>
+          Toda a identidade visual foi pensada para transmitir sensação de
+          sofisticação, tecnologia e velocidade, mas sem perder a simplicidade.
+        </p>
+
+        <p>
+          O novo visual claro premium usa tons suaves, azul petróleo e dourado,
+          criando uma experiência mais elegante e agradável.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Versões futuras</h2>
+
+        <p>
+          O VrumLab continuará evoluindo. Entre os recursos planejados estão:
+        </p>
+
+        <ul>
+          <li>Perfis de usuários;</li>
+          <li>Favoritar motos;</li>
+          <li>Histórico de comparações;</li>
+          <li>Mais filtros e gráficos interativos;</li>
+          <li>Integração com notícias e lançamentos.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- RODAPÉ DA PÁGINA                                      -->
+    <!-- ===================================================== -->
+    <div class="ultima-atualizacao">
+      Projeto VrumLab • Atualizado em abril de 2026
+    </div>
+
+  </main>
+
+  <!-- ===================================================== -->
+  <!-- FOOTER PADRÃO                                         -->
+  <!-- ===================================================== -->
+  <div id="header-footer-bottom"></div>
+
+  <!-- ===================================================== -->
+  <!-- SCRIPT DE CARREGAMENTO DO HEADER E FOOTER             -->
+  <!-- ===================================================== -->
+  <script>
+    fetch("../components/header-footer.html")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erro ao carregar header-footer.html");
+        }
+
+        return response.text();
+      })
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const header = doc.querySelector(".header");
+        const footer = doc.querySelector(".footer");
+
+        if (header) {
+          document.getElementById("header-footer-top").innerHTML =
+            header.outerHTML;
+        }
+
+        if (footer) {
+          document.getElementById("header-footer-bottom").innerHTML =
+            footer.outerHTML;
+        }
+
+        const menuBtn = document.getElementById("menuMobileBtn");
+        const menu = document.getElementById("menuPrincipal");
+
+        menuBtn?.addEventListener("click", () => {
+          menu.classList.toggle("ativo");
+        });
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade | VrumLab</title>
+
+  <!-- ===================================================== -->
+<!-- CSS GLOBAL COMPARTILHADO                              -->
+<!-- ===================================================== -->
+<link rel="stylesheet" href="../components/variables.css">
+<link rel="stylesheet" href="../components/background.css">
+<link rel="stylesheet" href="../components/layout.css">
+<link rel="stylesheet" href="../components/buttons.css">
+<link rel="stylesheet" href="../components/cards.css">
+<link rel="stylesheet" href="../components/header-footer.css">
+
+<!-- ===================================================== -->
+<!-- CSS ESPECÍFICO DA PÁGINA                              -->
+<!-- ===================================================== -->
+<link rel="stylesheet" href="politica-de-privacidade.css">
+</head>
+<body>
+
+<!-- ===================================================== -->
+<!-- HEADER PADRÃO                                         -->
+<!-- ===================================================== -->
+
+<div id="header-footer-top"></div>
+  <div class="container">
+
+      <section class="hero">
+      <div class="tag">VRUMLAB • POLÍTICA DE PRIVACIDADE</div>
+
+      <h1>Política de <span>Privacidade</span></h1>
+
+      <p>
+        A sua privacidade é importante para nós. Esta página explica quais dados podem ser coletados pelo VrumLab,
+        como essas informações são utilizadas e quais são os seus direitos.
+      </p>
+    </section>
+
+    <section class="content">
+
+      <div class="card">
+        <h2>1. Informações coletadas</h2>
+        <p>
+          O VrumLab pode coletar algumas informações fornecidas diretamente pelo usuário durante o uso do site,
+          como:
+        </p>
+
+        <ul>
+          <li>Nome ou apelido informado em formulários;</li>
+          <li>Dados de cadastro e preferências;</li>
+          <li>Informações registradas em ferramentas, comparadores ou simuladores;</li>
+          <li>Dados técnicos, como navegador, dispositivo e endereço IP.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>2. Como usamos seus dados</h2>
+        <p>
+          As informações coletadas são utilizadas para melhorar a experiência do usuário e permitir o funcionamento
+          adequado do site.
+        </p>
+
+        <ul>
+          <li>Salvar informações e preferências do usuário;</li>
+          <li>Personalizar conteúdos e funcionalidades;</li>
+          <li>Melhorar desempenho, segurança e estabilidade;</li>
+          <li>Identificar erros e corrigir problemas técnicos.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>3. Compartilhamento de informações</h2>
+        <p>
+          O VrumLab não vende informações pessoais. Os dados poderão ser compartilhados apenas quando necessário
+          para o funcionamento do serviço, como no uso de ferramentas de hospedagem, banco de dados ou autenticação.
+        </p>
+
+        <p style="margin-top:12px;">
+          Também poderá haver compartilhamento quando exigido por lei ou ordem judicial.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>4. Cookies</h2>
+        <p>
+          O site pode utilizar cookies para lembrar preferências, manter sessões ativas e entender como as páginas
+          são utilizadas.
+        </p>
+
+        <p style="margin-top:12px;">
+          Você pode desativar os cookies nas configurações do navegador, mas algumas funcionalidades poderão deixar
+          de funcionar corretamente.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>5. Armazenamento e segurança</h2>
+        <p>
+          Adotamos medidas razoáveis para proteger as informações armazenadas contra acesso não autorizado,
+          alteração, perda ou divulgação indevida.
+        </p>
+
+        <p style="margin-top:12px;">
+          Ainda assim, nenhum sistema é completamente seguro. Por isso, recomendamos que o usuário também mantenha
+          seus dados protegidos.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>6. Direitos do usuário</h2>
+        <p>
+          Em conformidade com a legislação aplicável, incluindo a <span class="highlight">LGPD</span>, o usuário
+          pode solicitar:
+        </p>
+
+        <ul>
+          <li>A confirmação da existência de dados armazenados;</li>
+          <li>O acesso, correção ou exclusão dessas informações;</li>
+          <li>A revogação de consentimentos concedidos;</li>
+          <li>A exclusão da conta ou dos dados relacionados.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>7. Alterações nesta política</h2>
+        <p>
+          Esta Política de Privacidade pode ser atualizada a qualquer momento para refletir mudanças no site,
+          nas funcionalidades ou na legislação.
+        </p>
+
+        <p style="margin-top:12px;">
+          Recomendamos que esta página seja consultada periodicamente.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>8. Contato</h2>
+        <p>
+          Caso tenha dúvidas sobre esta Política de Privacidade ou queira exercer algum direito relacionado aos
+          seus dados, entre em contato pelo canal disponibilizado no site.
+        </p>
+      </div>
+
+    </section>
+
+    
+    <!-- ================================================ -->
+    <!-- INFORMAÇÃO DE ÚLTIMA ATUALIZAÇÃO                 -->
+    <!-- ================================================ -->
+    <div class="ultima-atualizacao">
+      Última atualização: abril de 2026 • VrumLab
+    </div>
+
+  </div>
+  <!-- Fim do .container principal -->
+
+  <!-- ===================================================== -->
+  <!-- FOOTER PADRÃO                                         -->
+  <!-- O conteúdo será carregado automaticamente do arquivo  -->
+  <!-- ../components/header-footer.html                       -->
+  <!-- ===================================================== -->
+  <div id="header-footer-bottom"></div>
+
+  <!-- ===================================================== -->
+  <!-- SCRIPT PARA CARREGAR HEADER E FOOTER                 -->
+  <!-- ===================================================== -->
+  <script>
+    fetch("../components/header-footer.html")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(
+            "Não foi possível carregar ../components/header-footer.html"
+          );
+        }
+
+        return response.text();
+      })
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        /* Insere o header no topo */
+        const header = doc.querySelector(".header");
+        if (header) {
+          document.getElementById("header-footer-top").innerHTML =
+            header.outerHTML;
+        }
+
+        /* Insere o footer no final */
+        const footer = doc.querySelector(".footer");
+        if (footer) {
+          document.getElementById("header-footer-bottom").innerHTML =
+            footer.outerHTML;
+        }
+
+        /* Ativa o menu mobile */
+        const menuBtn = document.getElementById("menuMobileBtn");
+        const menu = document.getElementById("menuPrincipal");
+
+        menuBtn?.addEventListener("click", () => {
+          menu.classList.toggle("ativo");
+        });
+      })
+      .catch(error => {
+        console.error("Erro ao carregar header/footer:", error);
+      });
+  </script>
+</body>
+</html>

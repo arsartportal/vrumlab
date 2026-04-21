@@ -1,0 +1,126 @@
+/* ====================================================== */
+/* CONTAINER ESPECÍFICO DA PÁGINA                          */
+/* ====================================================== */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* ====================================================== */
+/* HERO DA POLÍTICA DE PRIVACIDADE                        */
+/* ====================================================== */
+
+.hero {
+  background: linear-gradient(
+    135deg,
+    rgba(68,92,109,0.16),
+    rgba(17,23,34,0.96)
+  );
+
+  border: 1px solid var(--border);
+  border-radius: 28px;
+
+  padding: 48px;
+  margin-bottom: 28px;
+
+  box-shadow: var(--shadow);
+}
+
+/* ====================================================== */
+/* TÍTULO PRINCIPAL                                       */
+/* ====================================================== */
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  max-width: 760px;
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+/* ====================================================== */
+/* LISTA DE BLOCOS DA POLÍTICA                            */
+/* ====================================================== */
+
+.content {
+  display: grid;
+  gap: 22px;
+}
+
+/* ====================================================== */
+/* AJUSTES DOS CARDS DESSA PÁGINA                         */
+/* Usa a base do cards.css, mas adapta para esta página   */
+/* ====================================================== */
+
+.content .card {
+  background: rgba(20, 26, 37, 0.95);
+}
+
+.content .card h2 {
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-size: 1.4rem;
+}
+
+.content .card p,
+.content .card li {
+  color: #d6dbe4;
+  font-size: 1rem;
+}
+
+.content .card ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.content .card li + li {
+  margin-top: 8px;
+}
+
+/* ====================================================== */
+/* TEXTO DESTACADO                                        */
+/* ====================================================== */
+
+.highlight {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ====================================================== */
+/* ÚLTIMA ATUALIZAÇÃO                                     */
+/* ====================================================== */
+
+.ultima-atualizacao {
+  text-align: center;
+  margin-top: 28px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+/* ====================================================== */
+/* RESPONSIVO                                             */
+/* ====================================================== */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 24px 16px 60px;
+  }
+
+  .hero {
+    padding: 28px;
+  }
+
+  .content .card {
+    padding: 24px;
+  }
+}

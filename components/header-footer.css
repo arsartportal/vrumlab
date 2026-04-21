@@ -1,0 +1,264 @@
+/* ====================================================== */
+/* CONTAINER PADRÃO                                       */
+/* ====================================================== */
+
+.container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* ====================================================== */
+/* HEADER                                                 */
+/* ====================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  background: rgba(10, 12, 15, 0.82);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Barra principal */
+.nav {
+  min-height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ====================================================== */
+/* LOGO                                                   */
+/* ====================================================== */
+
+.logo {
+  text-decoration: none;
+  color: var(--text);
+
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+
+  transition: 0.25s ease;
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+/* ====================================================== */
+/* MENU                                                   */
+/* ====================================================== */
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.menu a {
+  position: relative;
+
+  color: var(--text-soft);
+  text-decoration: none;
+  font-weight: 500;
+
+  transition: 0.25s ease;
+}
+
+/* Efeito de linha ao passar o mouse */
+.menu a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 0%;
+  height: 2px;
+
+  background: var(--gold);
+  border-radius: 999px;
+
+  transition: width 0.25s ease;
+}
+
+.menu a:hover {
+  color: var(--gold);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* ====================================================== */
+/* BOTÃO DO MENU MOBILE                                   */
+/* ====================================================== */
+
+.menu-mobile-btn {
+  display: none;
+
+  width: 46px;
+  height: 46px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+
+  font-size: 1.25rem;
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.menu-mobile-btn:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ====================================================== */
+/* FOOTER                                                 */
+/* ====================================================== */
+
+.footer {
+  margin-top: 100px;
+
+  border-top: 1px solid var(--border);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.01)
+    );
+}
+
+/* Conteúdo principal do footer */
+.footer-box {
+  padding: 60px 0 42px;
+
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 50px;
+}
+
+/* ====================================================== */
+/* BLOCO DA MARCA                                         */
+/* ====================================================== */
+
+.footer-brand p {
+  margin-top: 18px;
+  max-width: 360px;
+
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+/* ====================================================== */
+/* COLUNAS DE LINKS                                       */
+/* ====================================================== */
+
+.footer-links-coluna {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links-coluna h4 {
+  color: var(--metal-light);
+
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+
+.footer-links-coluna a {
+  color: var(--text-soft);
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.footer-links-coluna a:hover {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+/* ====================================================== */
+/* PARTE INFERIOR DO FOOTER                               */
+/* ====================================================== */
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+
+  padding: 22px;
+  text-align: center;
+
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* ====================================================== */
+/* RESPONSIVO                                             */
+/* ====================================================== */
+
+@media (max-width: 900px) {
+
+  /* Menu desktop desaparece */
+  .menu {
+    display: none;
+  }
+
+  /* Botão aparece */
+  .menu-mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Menu aberto no mobile */
+  .menu.ativo {
+    position: absolute;
+    top: 82px;
+    left: 16px;
+    right: 16px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    padding: 22px;
+
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow: var(--shadow);
+  }
+
+  .menu.ativo a {
+    width: 100%;
+  }
+
+  /* Footer em coluna */
+  .footer-box {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+}

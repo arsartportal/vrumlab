@@ -27,31 +27,24 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="pagina-inicial.css">
+<link rel="stylesheet" href="./components/variables.css">
+<link rel="stylesheet" href="./components/background.css">
+<link rel="stylesheet" href="./components/layout.css">
+<link rel="stylesheet" href="./components/buttons.css">
+<link rel="stylesheet" href="./components/cards.css">
+<link rel="stylesheet" href="./components/header-footer.css">
+
+<link rel="stylesheet" href="pagina-inicial.css">
 </head>
 
 <body>
 
-  <!-- ===================================================== -->
-  <!-- HEADER                                                -->
-  <!-- ===================================================== -->
-  <header class="header">
-    <div class="container nav">
-
-      <div class="logo">
-        <span>Vrum</span>Lab
-      </div>
-
-      <nav>
-        <a href="#comparador">Comparador</a>
-        <a href="#populares">Populares</a>
-        <a href="#categorias">Categorias</a>
-        <a href="#artigos">Artigos</a>
-        <a href="#sobre">Sobre</a>
-      </nav>
-
-    </div>
-  </header>
+<!-- ===================================================== -->
+<!-- HEADER PADRÃO                                         -->
+<!-- O conteúdo será carregado automaticamente do arquivo  -->
+<!-- header-footer.html                                    -->
+<!-- ===================================================== -->
+<div id="header-footer-top"></div>
 
   <!-- ===================================================== -->
   <!-- HERO                                                  -->
@@ -61,7 +54,7 @@
 
       <div class="hero-texto">
 
-        <div class="hero-badge">
+        <div class="section-tag">
           🏍️ Comparador inteligente de motos
         </div>
 
@@ -168,11 +161,11 @@
         <span class="section-tag">COMPARE AGORA</span>
 
         <h2>
-          Compare duas motos lado a lado.
+          Compare até cinco motos lado a lado.
         </h2>
 
         <p>
-          Escolha duas motos do banco de dados e veja imediatamente
+          Escolha até cinco motos do banco de dados e veja imediatamente
           qual é melhor em potência, consumo, peso, torque e muito mais.
         </p>
       </div>
@@ -225,54 +218,44 @@
 
     </div>
   </section>
-
-  <section class="ranking-section">
+  <!-- ===================================================== -->
+<!-- RANKING DAS MOTOS MAIS POPULARES                      -->
+<!-- Esta seção é preenchida automaticamente pelo JS       -->
+<!-- usando o elemento #rankingMotos                       -->
+<!-- ===================================================== -->
+<section id="populares" class="ranking-section">
   <div class="container">
-    <div id="rankingMotos"></div>
+
+    <!-- ================================================ -->
+    <!-- LISTA DO RANKING                                 -->
+    <!-- O JavaScript adiciona os itens aqui              -->
+    <!-- ================================================ -->
+    <div class="ranking-box">
+
+      <div id="rankingMotos" class="ranking-lista">
+
+        <!-- Exemplo de item gerado pelo JS:
+        <div class="ranking-item">
+          <div class="ranking-posicao">#1</div>
+
+          <div class="ranking-info">
+            <strong>Honda CB 500X</strong>
+            <span>Trail • Honda • 2024</span>
+          </div>
+
+          <div class="ranking-total">
+            284
+            <small>comparações</small>
+          </div>
+        </div>
+        -->
+
+      </div>
+
+    </div>
+
   </div>
 </section>
-
-  <!-- ===================================================== -->
-  <!-- POPULARES                                             -->
-  <!-- ===================================================== -->
-  <section id="populares" class="populares-section">
-    <div class="container">
-
-      <div class="section-header">
-        <span class="section-tag">MOTOS POPULARES</span>
-
-        <h2>
-          Algumas das motos mais comparadas no VrumLab.
-        </h2>
-
-        <p>
-          Descubra as motos que mais chamam atenção de quem visita o VrumLab.
-        </p>
-      </div>
-
-      <div class="cards-populares">
-
-        <article class="card-popular">
-          <img src="../img/fan150.jpg" alt="Honda Fan 150">
-
-          <div class="card-popular-conteudo">
-            <h3>Honda Fan 150 ESDi 2014</h3>
-            <p>Leve, econômica e perfeita para aprender.</p>
-          </div>
-        </article>
-
-        <article class="card-popular">
-          <img src="../img/harley883.jpg" alt="Harley-Davidson 883 R">
-
-          <div class="card-popular-conteudo">
-            <h3>Harley-Davidson 883 R 2013</h3>
-            <p>Uma das customs mais desejadas do mundo.</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
 
   
 
@@ -498,23 +481,56 @@
   </section>
 
   <!-- ===================================================== -->
-  <!-- FOOTER                                                -->
+<!-- FOOTER PADRÃO                                         -->
+<!-- O conteúdo será carregado automaticamente do arquivo  -->
+<!-- header-footer.html                                    -->
+<!-- ===================================================== -->
+<div id="header-footer-bottom"></div>
+
   <!-- ===================================================== -->
-  <footer class="footer">
-    <div class="container footer-box">
+<!-- SCRIPT PRINCIPAL DO SITE                              -->
+<!-- ===================================================== -->
+<script type="module" src="vrumlab.js"></script>
 
-      <p>
-        © 2026 VrumLab — Seu próximo carro ou moto começa aqui.
-      </p>
+<!-- ===================================================== -->
+<!-- SCRIPT PARA CARREGAR O HEADER E O FOOTER PADRÃO       -->
+<!-- ===================================================== -->
+<script>
+  fetch("./components/header-footer.html")
+    .then(response => response.text())
+    .then(html => {
 
-      <div class="footer-links">
-        <a href="#">Política de Privacidade</a>
-        <a href="#">Contato</a>
-      </div>
+      /* Converte o HTML carregado em um documento temporário */
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
 
-    </div>
-  </footer>
+      /* Procura o header e coloca no topo da página */
+      const header = doc.querySelector(".header");
+      if (header) {
+        document
+          .getElementById("header-footer-top")
+          .appendChild(header);
+      }
 
-  <script type="module" src="vrumlab.js"></script>
+      /* Procura o footer e coloca no final da página */
+      const footer = doc.querySelector(".footer");
+      if (footer) {
+        document
+          .getElementById("header-footer-bottom")
+          .appendChild(footer);
+      }
+
+      /* Ativa o menu mobile */
+      const menuBtn = document.getElementById("menuMobileBtn");
+      const menu = document.getElementById("menuPrincipal");
+
+      menuBtn?.addEventListener("click", () => {
+        menu.classList.toggle("ativo");
+      });
+    })
+    .catch(error => {
+      console.error("Erro ao carregar header-footer.html:", error);
+    });
+</script>
 </body>
 </html>
