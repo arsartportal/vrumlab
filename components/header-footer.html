@@ -6,27 +6,41 @@
 
     <!-- Logo -->
     <a href="/index.html" class="logo">
-    <span>Vrum</span>Lab
+      <span>Vrum</span>Lab
     </a>
 
-    <!-- Botão do menu mobile -->
-    <button
-      class="menu-mobile-btn"
-      id="menuMobileBtn"
-      aria-label="Abrir menu"
-    >
-      ☰
-    </button>
+    <!-- AÇÕES (menu + tema) -->
+    <div class="nav-acoes">
+
+      <!-- Botão dark mode -->
+      <button
+        id="themeToggle"
+        class="theme-toggle"
+        aria-label="Alternar tema"
+      >
+        🌙
+      </button>
+
+      <!-- Botão do menu mobile -->
+      <button
+        class="menu-mobile-btn"
+        id="menuMobileBtn"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
+
+    </div>
 
     <!-- Navegação -->
     <nav class="menu" id="menuPrincipal">
-  <a href="/index.html#comparador">Comparador</a>
-  <a href="/index.html#populares">Populares</a>
-  <a href="/index.html#categorias">Categorias</a>
-  <a href="/index.html#artigos">Artigos</a>
-  <a href="/sobre/sobre.html">Sobre</a>
-  <a href="/politica-de-privacidade/politicadeprivacidade.html">Privacidade</a>
-</nav>
+      <a href="/index.html#comparador">Comparador</a>
+      <a href="/index.html#populares">Populares</a>
+      <a href="/index.html#categorias">Categorias</a>
+      <a href="/index.html#artigos">Artigos</a>
+      <a href="/sobre/sobre.html">Sobre</a>
+      <a href="/politica-de-privacidade/politicadeprivacidade.html">Privacidade</a>
+    </nav>
 
   </div>
 </header>
@@ -85,14 +99,45 @@
   </div>
 </footer>
 
-<!-- ===================================================== -->
-<!-- SCRIPT DO MENU MOBILE                                 -->
-<!-- ===================================================== -->
 <script id="3mjlwm">
-  const menuBtn = document.getElementById("menuMobileBtn");
-  const menu = document.getElementById("menuPrincipal");
+  document.addEventListener("DOMContentLoaded", () => {
 
-  menuBtn?.addEventListener("click", () => {
-    menu.classList.toggle("ativo");
+    const menuBtn = document.getElementById("menuMobileBtn");
+    const menu = document.getElementById("menuPrincipal");
+    const toggle = document.getElementById("themeToggle");
+
+    /* =========================
+       MENU MOBILE
+    ========================= */
+    menuBtn?.addEventListener("click", () => {
+      menu.classList.toggle("ativo");
+    });
+
+    /* =========================
+       DARK MODE
+    ========================= */
+
+    // Aplica tema salvo
+    const temaSalvo = localStorage.getItem("tema");
+
+    if (temaSalvo === "dark") {
+      document.body.classList.add("dark");
+      if (toggle) toggle.textContent = "☀️";
+    }
+
+    // Clique no botão
+    toggle?.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+
+      const isDark = document.body.classList.contains("dark");
+
+      // Troca ícone
+      toggle.textContent = isDark ? "☀️" : "🌙";
+
+      // Salva preferência
+      localStorage.setItem("tema", isDark ? "dark" : "light");
+    });
+
   });
 </script>
+

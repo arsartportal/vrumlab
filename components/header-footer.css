@@ -262,3 +262,47 @@
     max-width: 100%;
   }
 }
+
+/* Container das ações */
+.nav-acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Botão tema */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+
+  background: var(--bg-card);
+  color: var(--text);
+
+  cursor: pointer;
+
+  transition: var(--transition);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Mobile ajuste */
+@media (max-width: 768px) {
+  .nav-acoes {
+    gap: 6px;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}

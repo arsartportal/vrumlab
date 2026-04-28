@@ -1,674 +1,458 @@
-/* ====================================================== */
-/* HERO                                                   */
-/* ====================================================== */
-
-.hero {
-  padding: 90px 0 80px;
+/* =========================================================
+   RESET GLOBAL
+   Remove estilos padrão e garante consistência
+========================================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* =========================================================
+   BASE DO SITE
+========================================================= */
+body {
+  font-family: 'Inter', sans-serif;
+  background: #020617; /* fundo principal */
+  color: #e5e7eb; /* texto padrão */
+  line-height: 1.6;
+}
+
+/* Container central padrão */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================================================
+   HERO (SEÇÃO PRINCIPAL)
+========================================================= */
+.hero {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fundo com glow + profundidade */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 20% 30%, rgba(56,189,248,0.15), transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(249,115,22,0.15), transparent 40%),
+    linear-gradient(to bottom, #020617, #020617);
+
+  z-index: -1;
+}
+
+/* Grid técnico estilo “painel” */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+/* Layout do hero */
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
   align-items: center;
 }
 
-.hero h1 {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-  margin-bottom: 24px;
-  max-width: 700px;
-}
-
-.hero p,
-.section-header p,
-.sobre-box p {
-  color: var(--text-soft);
-  font-size: 1.05rem;
-  max-width: 720px;
-}
-
-.hero p {
-  margin-bottom: 34px;
-}
-
-.hero-botoes {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-/* ====================================================== */
-/* HERO CARD                                              */
-/* ====================================================== */
-
-.hero-card {
-  position: relative;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 34px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-
-.hero-card::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: rgba(196,167,106,0.10);
-  filter: blur(20px);
-}
-
-.mini-card {
-  position: relative;
-  z-index: 1;
-  border-radius: 24px;
-  padding: 22px;
-}
-
-.mini-card p {
-  margin-bottom: 10px;
-  font-size: 0.9rem;
-}
-
-.mini-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-}
-
-.mini-card span {
-  color: var(--text-soft);
-}
-
-.azul {
-  background: var(--petrol-soft);
-  border: 1px solid rgba(68,92,109,0.22);
-}
-
-.azul p,
-.azul h3 {
-  color: #91a8b8;
-}
-
-.laranja {
-  background: var(--gold-soft);
-  border: 1px solid rgba(196,167,106,0.22);
-}
-
-.laranja p,
-.laranja h3 {
-  color: var(--gold-light);
-}
-
-.versus {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: #111;
-  display: grid;
-  place-items: center;
+/* Título principal */
+.hero-texto h1 {
+  font-size: 3.2rem;
   font-weight: 800;
-  margin: 0 auto;
-  z-index: 1;
+  line-height: 1.1;
+  margin: 16px 0;
+
+  /* efeito gradiente no texto */
+  background: linear-gradient(90deg, #ffffff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* ====================================================== */
-/* STATS                                                  */
-/* ====================================================== */
+/* Texto do hero */
+.hero-texto p {
+  color: #94a3b8;
+  max-width: 500px;
+}
+
+/* Tag (badge) */
+.section-tag {
+  display: inline-block;
+  background: rgba(56,189,248,0.1);
+  color: #38bdf8;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* Botão principal (CTA) */
+.btn-principal {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: #020617;
+}
+
+/* Hover com glow */
+.btn-principal:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 10px 30px rgba(34,197,94,0.4),
+    0 0 20px rgba(34,197,94,0.3);
+}
+
+/* Botão secundário */
+.btn-secundario {
+  border: 1px solid #334155;
+  color: #e5e7eb;
+}
+
+.btn-secundario:hover {
+  background: #1e293b;
+}
+
+/* =========================================================
+   CARD VS (COMPARAÇÃO HERO)
+========================================================= */
+.hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(2,6,23,0.7);
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 20px;
+
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* Cards individuais */
+.mini-card {
+  flex: 1;
+  padding: 16px;
+  border-radius: 12px;
+  background: #020617;
+  border: 1px solid #1e293b;
+}
+
+/* Destaque azul */
+.mini-card.azul {
+  border-left: 4px solid #38bdf8;
+  box-shadow: inset 0 0 20px rgba(56,189,248,0.1);
+}
+
+/* Destaque laranja */
+.mini-card.laranja {
+  border-left: 4px solid #f97316;
+  box-shadow: inset 0 0 20px rgba(249,115,22,0.1);
+}
+
+/* Texto interno */
+.mini-card span {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+/* VS central */
+.versus {
+  margin: 0 15px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #94a3b8;
+  opacity: 0.6;
+}
+
+/* =========================================================
+   ESTATÍSTICAS
+========================================================= */
+.stats-section {
+  padding: 60px 0;
+}
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  gap: 20px;
 }
 
-
-.stat-card.destaque {
-  background: linear-gradient(
-    135deg,
-    rgba(196,167,106,0.14),
-    rgba(255,255,255,0.03)
-  );
+.stat-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 14px;
+  text-align: center;
+  transition: 0.3s;
 }
 
-/* ====================================================== */
-/* CARDS POPULARES                                        */
-/* ====================================================== */
-
-.cards-populares,
-.vantagens-grid,
-.categorias-grid,
-.artigos-grid {
-  display: grid;
-  gap: 24px;
+.stat-card strong {
+  font-size: 1.8rem;
 }
 
-.cards-populares {
-  grid-template-columns: repeat(2, 1fr);
+/* Hover padrão global */
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: #38bdf8;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-.vantagens-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.categorias-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.artigos-grid {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-
-.card-popular img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-}
-
-.card-popular-conteudo {
-  padding: 24px;
-}
-
-.card-popular-conteudo h3 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-}
-
-.card-popular-conteudo p {
-  color: var(--text-soft);
-}
-
-.destaque-card {
-  background: linear-gradient(
-    135deg,
-    rgba(196,167,106,0.14),
-    rgba(255,255,255,0.03)
-  );
-}
-
-.destaque-artigo {
-  background: linear-gradient(
-    135deg,
-    rgba(196,167,106,0.14),
-    rgba(255,255,255,0.03)
-  );
-}
-
-/* ====================================================== */
-/* SOBRE                                                  */
-/* ====================================================== */
-
-.sobre-box {
-  max-width: 860px;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 34px;
-  padding: 44px;
-}
-
-.sobre-box p + p {
-  margin-top: 18px;
-}
-
-/* ====================================================== */
-/* RESPONSIVO                                             */
-/* ====================================================== */
-
-@media (max-width: 1000px) {
-  .hero-grid,
-  .stats-grid,
-  .vantagens-grid,
-  .categorias-grid,
-  .artigos-grid,
-  .cards-populares {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .comparador-box {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 800px) {
-  .hero-grid,
-  .stats-grid,
-  .vantagens-grid,
-  .categorias-grid,
-  .artigos-grid,
-  .cards-populares
-  {
-    grid-template-columns: 1fr;
-    display: grid;
-  }
-
-  .hero {
-    padding-top: 70px;
-  }
-
-  .hero-card {
-    order: -1;
-  }
-}
-
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-card,
-  .comparador-box,
-  .sobre-box,
-  .stat-card,
-  .vantagem-card,
-  .categoria-card,
-  .artigo-card {
-    padding: 22px;
-    border-radius: 24px;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero-botoes {
-    flex-direction: column;
-  }
-}
-
-/* ===================================================== */
-/* COMPARADOR ATÉ 5 MOTOS                                */
-/* ===================================================== */
-
+/* =========================================================
+   COMPARADOR
+========================================================= */
 .comparador-box {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 18px;
-  align-items: end;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .campo-select {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-.campo-select label {
-  color: #d0d0d0;
-  font-size: 0.95rem;
-  font-weight: 600;
+/* Select estilizado */
+select {
+  padding: 10px;
+  border-radius: 8px;
+  background: #020617;
+  border: 1px solid #334155;
+  color: #e5e7eb;
 }
 
-.campo-select select {
-  width: 100%;
-  padding: 14px 16px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.08);
-  background: #121212;
-  color: #fff;
-  font-size: 0.95rem;
-  outline: none;
-  transition: 0.25s;
-}
-
-.campo-select select:focus {
-  border-color: rgba(196,167,106,0.35);
-  box-shadow: 0 0 0 4px rgba(196,167,106,0.15);
-}
-
+/* Botão ocupa linha inteira */
 #compararBtn {
-  height: 52px;
-  white-space: nowrap;
+  grid-column: 1/-1;
 }
 
+/* Resultado */
 .resultado-comparacao {
-  margin-top: 34px;
-  overflow-x: auto;
-  border-radius: 22px;
+  margin-top: 40px;
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 16px;
 }
 
-.tabela-comparacao {
-  width: 100%;
-  min-width: 900px;
-  border-collapse: collapse;
-  background: #111;
-  overflow: hidden;
-  border-radius: 22px;
-}
-
-.tabela-comparacao thead th {
-  background: #181818;
-  color: #fff;
-  padding: 18px 14px;
-  font-size: 0.95rem;
-  font-weight: 700;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.tabela-comparacao tbody td {
-  padding: 16px 14px;
-  text-align: center;
-  color: #e8e8e8;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  transition: 0.2s;
-}
-
-.tabela-comparacao tbody tr:hover td {
-  background: rgba(255,255,255,0.03);
-}
-
-.tabela-comparacao td:first-child,
-.tabela-comparacao th:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 2;
-  background: #151515;
-  text-align: left;
-  font-weight: 700;
-  color: #bdbdbd;
-  min-width: 180px;
-}
-
-.melhor {
-  background: rgba(34, 197, 94, 0.18) !important;
-  color: #9effb5 !important;
-  font-weight: 800;
-  box-shadow: inset 0 0 0 1px rgba(34, 197, 94, 0.35);
-}
-
-.pior {
-  opacity: 0.75;
-}
-
-@media (max-width: 900px) {
-  .comparador-box {
-    grid-template-columns: 1fr;
-  }
-
-  #compararBtn {
-    width: 100%;
-  }
-}
-
-.comentarios-comparacao {
-  margin-top: 28px;
-  display: grid;
-  gap: 16px;
-}
-
-.comentarios-comparacao h3 {
-  color: #fff;
-  font-size: 1.2rem;
-  margin-bottom: 6px;
-}
-
-.comentario-moto {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 18px;
-  padding: 18px 20px;
-}
-
-.comentario-moto h4 {
-  color: var(--gold-light);
-  margin-bottom: 8px;
-  font-size: 1rem;
-}
-
-.comentario-moto p {
-  color: #d4d4d4;
-  line-height: 1.6;
-}
-
-/* ====================================================== */
-/* RANKING DAS MOTOS MAIS COMPARADAS                      */
-/* ====================================================== */
-
-.ranking-section {
-  padding: 100px 0;
-  background:
-    radial-gradient(circle at top, rgba(196,167,106,0.12), transparent 45%),
-    linear-gradient(180deg, #090b12 0%, #111522 100%);
-}
-
-.ranking-box {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.ranking-lista {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  margin-top: 48px;
-}
-
+/* =========================================================
+   RANKING
+========================================================= */
 .ranking-item {
-  position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 24px;
-  padding: 24px 28px;
-  border-radius: 28px;
 
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 14px;
+  border-radius: 12px;
 
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  transition:
-    transform 0.28s ease,
-    border-color 0.28s ease,
-    box-shadow 0.28s ease,
-    background 0.28s ease;
-
-  overflow: hidden;
-}
-
-.ranking-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 18%;
-  width: 5px;
-  height: 64%;
-  border-radius: 999px;
-  background: linear-gradient(
-  180deg,
-  var(--gold),
-  var(--gold-light)
-);
-  opacity: 0;
-  transition: opacity 0.28s ease;
+  margin-bottom: 10px;
+  transition: 0.3s;
 }
 
 .ranking-item:hover {
-  transform: translateY(-4px) scale(1.01);
-  border-color: rgba(196,167,106,0.35);
-  background: rgba(196,167,106,0.08);
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.35),
-    0 0 0 1px rgba(196,167,106,0.10);
+  transform: translateY(-4px);
+  border-color: #22c55e;
 }
 
-.ranking-item:hover::before {
-  opacity: 1;
+/* =========================================================
+   VANTAGENS
+========================================================= */
+.vantagens-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-/* ====================================================== */
-/* POSIÇÃO (#1, #2...)                                    */
-/* ====================================================== */
-
-.ranking-posicao {
-  min-width: 82px;
-  height: 82px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 22px;
-
-  background: linear-gradient(
-  135deg,
-  var(--gold),
-  var(--gold-light)
-);
-  color: #fff;
-
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-
-  box-shadow:
-  0 10px 24px rgba(196,167,106,0.28),
-  inset 0 1px 0 rgba(255,255,255,0.15);
+.vantagem-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  text-align: center;
+  transition: 0.3s;
 }
 
-/* Top 3 com destaque especial */
-
-.ranking-item:nth-child(1) .ranking-posicao {
-  background: linear-gradient(135deg, #ffd86b, #ffb400);
-  color: #1a1200;
-  box-shadow:
-    0 12px 30px rgba(255, 196, 0, 0.4);
+.vantagem-card:hover {
+  transform: translateY(-6px);
+  border-color: #38bdf8;
 }
 
-.ranking-item:nth-child(2) .ranking-posicao {
-  background: linear-gradient(135deg, #d8dde8, #9ea7b8);
-  color: #111827;
+/* =========================================================
+   CATEGORIAS
+========================================================= */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-.ranking-item:nth-child(3) .ranking-posicao {
-  background: linear-gradient(135deg, #d99a6c, #9b5d33);
-  color: #fff;
+.categoria-card {
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #1e293b;
+  text-align: center;
+  transition: 0.3s;
 }
 
-/* ====================================================== */
-/* INFORMAÇÕES DA MOTO                                    */
-/* ====================================================== */
-
-.ranking-info {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  flex: 1;
+.categoria-card:hover {
+  transform: translateY(-6px);
+  border-color: #f97316;
 }
 
-.ranking-info strong {
-  font-size: 1.28rem;
-  color: #ffffff;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+/* =========================================================
+   ARTIGOS
+========================================================= */
+.artigos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-.ranking-info span {
-  color: rgba(255,255,255,0.65);
-  font-size: 0.96rem;
-  font-weight: 500;
+.artigo-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 20px;
+  border-radius: 16px;
+  transition: 0.3s;
 }
 
-/* ====================================================== */
-/* TOTAL DE COMPARAÇÕES                                   */
-/* ====================================================== */
-
-.ranking-total {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-
-  min-width: 130px;
-
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--gold-light);
-  letter-spacing: -0.03em;
+.artigo-card:hover {
+  transform: translateY(-6px);
+  border-color: #22c55e;
 }
 
-.ranking-total small {
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.45);
-}
+/* =========================================================
+   RESPONSIVO (MOBILE)
+========================================================= */
+@media (max-width: 900px) {
 
-/* ====================================================== */
-/* MEDALHAS NO TOP 3                                      */
-/* ====================================================== */
-
-.ranking-item:nth-child(1)::after,
-.ranking-item:nth-child(2)::after,
-.ranking-item:nth-child(3)::after {
-  position: absolute;
-  right: 2px;
-  top: 18px;
-  font-size: 1.35rem;
-  opacity: 0.9;
-}
-
-.ranking-item:nth-child(1)::after {
-  content: "🥇";
-}
-
-.ranking-item:nth-child(2)::after {
-  content: "🥈";
-}
-
-.ranking-item:nth-child(3)::after {
-  content: "🥉";
-}
-
-/* ====================================================== */
-/* RESPONSIVIDADE                                         */
-/* ====================================================== */
-
-@media (max-width: 768px) {
-  .ranking-section {
-    padding: 72px 0;
+  .hero {
+    padding: 60px 0;
   }
 
-  .ranking-item {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-texto h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-card {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 22px;
-    gap: 18px;
+    gap: 15px;
   }
 
-  .ranking-posicao {
-    width: 68px;
-    height: 68px;
-    min-width: 68px;
-    font-size: 1.3rem;
+  .versus {
+    margin: 10px 0;
   }
 
-  .ranking-info strong {
-    font-size: 1.08rem;
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .ranking-total {
-    align-items: flex-start;
-    min-width: auto;
-    font-size: 1.5rem;
+  .vantagens-grid,
+  .categorias-grid,
+  .artigos-grid {
+    grid-template-columns: 1fr;
   }
 
-  .ranking-item:nth-child(1)::after,
-  .ranking-item:nth-child(2)::after,
-  .ranking-item:nth-child(3)::after {
-    top: 16px;
-    right: 16px;
-  }
 }
 
+/* =========================================================
+   TEMA CLARO (SEÇÕES ABAIXO DO HERO)
+========================================================= */
+
+/* Fundo geral das seções */
+.stats-section,
+.comparador-section,
+.ranking-section,
+.vantagens-section,
+.categorias-section,
+.artigos-section,
+.sobre-section {
+  background: #f8fafc;
+  color: #020617;
+}
+
+/* Títulos */
+.section-header h2 {
+  color: #020617;
+}
+
+/* Textos */
+.section-header p {
+  color: #475569;
+}
+
+/* Cards padrão */
+.stat-card,
+.vantagem-card,
+.categoria-card,
+.artigo-card,
+.resultado-comparacao,
+.ranking-item {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #020617;
+}
+
+/* Hover mais leve */
+.stat-card:hover,
+.vantagem-card:hover,
+.categoria-card:hover,
+.artigo-card:hover {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Select */
+select {
+  background: #ffffff;
+  border: 1px solid #cbd5f5;
+  color: #020617;
+}
+
+/* Inputs foco */
+select:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+/* Ranking texto */
+.ranking-item small {
+  color: #64748b;
+}
+
+/* Sobre */
+.sobre-section p {
+  color: #475569;
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VrumLab — Comparador de Motos Inteligente</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="index-v2.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav">
+    <div class="logo"><span>Vrum</span>Lab</div>
+    <button id="themeToggle" class="btn-icon">🌙</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-bg"></div>
+
+  <div class="container hero-content">
+
+    <span class="hero-tag">
+      🏍️ Comparador inteligente de motos
+    </span>
+
+    <h1>
+      Compare motos e escolha a <span>melhor</span>
+    </h1>
+
+    <p>
+      Descubra qual máquina vence em potência, torque e desempenho real.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#comparador" class="btn btn-primary">
+        Comparar agora
+      </a>
+
+      <a href="#ranking" class="btn btn-ghost">
+        Ver ranking
+      </a>
+    </div>
+
+    <!-- STATS INTEGRADAS -->
+    <div class="hero-stats">
+
+      <div class="stat-card">
+        <span id="totalMotos">0</span>
+        <p>Motos cadastradas</p>
+      </div>
+
+      <div class="stat-card">
+        <span id="totalComparacoes">0</span>
+        <p>Comparações realizadas</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<section class="hero-divider">
+  <div class="container">
+
+    <div class="hero-mini-info">
+      <span>⚡ Compare até 5 motos</span>
+      <span>📊 +100 modelos cadastrados</span>
+      <span>🏆 Ranking em tempo real</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- COMPARADOR -->
+<section id="comparador" class="container comparador-section">
+
+  <div class="section-header">
+    <span class="section-tag">⚔️ Comparador</span>
+    <h2>Compare motos lado a lado</h2>
+    <p>Escolha até 5 motos e descubra qual vence.</p>
+  </div>
+
+  <div class="comparador-box">
+
+    <div class="comparador-grid">
+      <select id="moto1"></select>
+      <select id="moto2"></select>
+      <select id="moto3"></select>
+      <select id="moto4"></select>
+      <select id="moto5"></select>
+    </div>
+
+    <button id="compararBtn" class="btn btn-primary">
+      ⚔️ Comparar motos
+    </button>
+
+  </div>
+
+  <div id="resultadoComparacao" class="resultado-box"></div>
+
+</section>
+
+<!-- RANKING -->
+<section class="container ranking-section">
+
+  <div class="ranking-header">
+    <span class="ranking-tag">🏆 Ranking</span>
+    <h2>As motos mais comparadas do VrumLab</h2>
+    <p>Veja quais motos mais despertam interesse.</p>
+  </div>
+
+  <div id="rankingMotos" class="ranking-list"></div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © 2026 VrumLab
+</footer>
+
+<!-- DARK MODE -->
+<script>
+const toggle = document.getElementById("themeToggle");
+
+if(localStorage.getItem("tema")==="dark"){
+  document.body.classList.add("dark");
+  toggle.textContent="☀️";
+}
+
+toggle.onclick=()=>{
+  document.body.classList.toggle("dark");
+  const dark=document.body.classList.contains("dark");
+  toggle.textContent=dark?"☀️":"🌙";
+  localStorage.setItem("tema",dark?"dark":"light");
+};
+</script>
+
+<!-- FIREBASE + SISTEMA -->
+<script type="module" src="./firebase.js"></script>
+<script type="module" src="vrumlab.js"></script>
+
+</body>
+</html>

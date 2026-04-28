@@ -356,45 +356,72 @@ for (const moto of motosSelecionadas) {
   /* RESUMO AUTOMÁTICO                                    */
   /* ==================================================== */
 
-  const comentarios = motosSelecionadas.map(moto => {
-    const vantagens = [];
+/* ====================================================
+   RESUMO VISUAL (AAA)
+==================================================== */
 
-    Object.entries(configuracaoCampos)
-      .filter(([_, config]) => config.tipo === "numero")
-      .forEach(([campo, config]) => {
+const comentarios = `
+  <div class="destaque-section">
 
-        const valores = motosSelecionadas
-          .map(item => Number(item[campo]))
-          .filter(valor => !isNaN(valor));
+    <h3>🏆 Quem vence em cada aspecto?</h3>
 
-        if (!valores.length) return;
+    <div class="destaque-grid">
 
-        const melhorValor = config.melhor === "menor"
-          ? Math.min(...valores)
-          : Math.max(...valores);
+      ${motosSelecionadas.map(moto => {
 
-        if (Number(moto[campo]) === melhorValor) {
-          vantagens.push(config.label.toLowerCase());
-        }
-      });
+        const vantagens = [];
 
-    let textoComentario = "";
+        Object.entries(configuracaoCampos)
+          .filter(([_, config]) => config.tipo === "numero")
+          .forEach(([campo, config]) => {
 
-    if (vantagens.length === 0) {
-      textoComentario = "Tem um conjunto equilibrado, mas não lidera claramente nenhum critério.";
-    } else if (vantagens.length === 1) {
-      textoComentario = `Se destaca principalmente em ${vantagens[0]}.`;
-    } else {
-      textoComentario = `Se destaca principalmente em ${vantagens.slice(0, 5).join(", ")}.`;
-    }
+            const valores = motosSelecionadas
+              .map(item => Number(item[campo]))
+              .filter(valor => !isNaN(valor));
 
-    return `
-      <div class="comentario-moto">
-        <h4>${moto.marca} ${moto.modelo} ${moto.ano}</h4>
-        <p>${textoComentario}</p>
-      </div>
-    `;
-  }).join("");
+            if (!valores.length) return;
+
+            const melhorValor = config.melhor === "menor"
+              ? Math.min(...valores)
+              : Math.max(...valores);
+
+            if (Number(moto[campo]) === melhorValor) {
+              vantagens.push(config.label);
+            }
+          });
+
+        /* destaque vencedor geral */
+        const classe = vantagens.length >= 3 ? "vencedor" : "";
+
+        return `
+          <div class="destaque-card ${classe}">
+
+            <div class="destaque-header">
+              🏍️ ${moto.marca} ${moto.modelo} ${moto.ano}
+            </div>
+
+            ${
+              vantagens.length === 0
+              ? `<p class="destaque-neutro">
+                   Equilibrada, sem dominar critérios específicos.
+                 </p>`
+              : `
+                <div class="destaque-tags">
+                  ${vantagens.slice(0,6).map(v => `
+                    <span>${v}</span>
+                  `).join("")}
+                </div>
+              `
+            }
+
+          </div>
+        `;
+      }).join("")}
+
+    </div>
+
+  </div>
+`;
 
   /* ==================================================== */
   /* HTML FINAL                                            */
@@ -438,9 +465,9 @@ resultado.innerHTML = `
 await carregarRanking();
 }
 
-/* ====================================================== */
-/* CARREGA O RANKING DAS MOTOS MAIS COMPARADAS            */
-/* ====================================================== */
+/* ======================================================
+   CARREGA O RANKING DAS MOTOS MAIS COMPARADAS
+====================================================== */
 
 async function carregarRanking() {
   try {
@@ -457,6 +484,9 @@ async function carregarRanking() {
 
     if (!container) return;
 
+    /* =========================
+       SEM DADOS
+    ========================= */
     if (ranking.length === 0) {
       container.innerHTML = `
         <div class="aviso-box">
@@ -466,44 +496,56 @@ async function carregarRanking() {
       return;
     }
 
+    /* =========================
+       RENDERIZAÇÃO
+    ========================= */
     container.innerHTML = `
-      <div class="ranking-box">
-        <div class="section-header">
-          <span class="section-tag">RANKING</span>
+      <div class="ranking-list">
+        ${ranking.map((moto, index) => {
 
-          <h2>
-            As motos mais comparadas do VrumLab
-          </h2>
+          /* classes do top */
+          let classeTop = "";
+          let medalha = "";
 
-          <p>
-            Veja quais motos mais despertam curiosidade entre os visitantes.
-          </p>
-        </div>
+          if (index === 0) {
+            classeTop = "top-1";
+            medalha = "🥇";
+          } else if (index === 1) {
+            classeTop = "top-2";
+            medalha = "🥈";
+          } else if (index === 2) {
+            classeTop = "top-3";
+            medalha = "🥉";
+          }
 
-        <div class="ranking-lista">
-          ${ranking.map((moto, index) => `
-            <div class="ranking-item">
+          return `
+            <div class="ranking-item ${classeTop}">
+
+              <!-- posição -->
               <div class="ranking-posicao">
-                #${index + 1}
+                ${medalha || `#${index + 1}`}
               </div>
 
+              <!-- info -->
               <div class="ranking-info">
                 <strong>
                   ${moto.marca} ${moto.modelo}
                 </strong>
-
                 <span>${moto.ano}</span>
               </div>
 
+              <!-- total -->
               <div class="ranking-total">
                 ${moto.comparacoes.toLocaleString("pt-BR")}
                 <small>comparações</small>
               </div>
+
             </div>
-          `).join("")}
-        </div>
+          `;
+        }).join("")}
       </div>
     `;
+
   } catch (erro) {
     console.error("Erro ao carregar ranking:", erro);
   }
